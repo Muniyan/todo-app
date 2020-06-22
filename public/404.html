@@ -6,7 +6,6 @@
     <script type="text/javascript">
       let path = window.location.pathname.split("/");
       if(path.length > 1) {
-        console.log("path=========================== ", path);
         window.location.replace(window.location.origin + "/" + path[1] + "/?p=" + path[2] || "");
       }
     </script>
