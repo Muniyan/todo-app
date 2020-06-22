@@ -21,7 +21,7 @@ class App extends Component {
         { this.renderRedirect() }
         <header className="App-header w100">
           <span className="App-icon fleft" />
-          <Link to="/todo-app" className="App-name fleft cpointer">
+          <Link to="/todo-app/todo" className="App-name fleft cpointer">
             To Do App
           </Link>
         </header>
