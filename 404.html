@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>React App</title>
     <script type="text/javascript">
-      console.log("pathname======================", window.location.pathname);
-      window.location.replace(window.location.origin + "/todo/?p=" + window.location.pathname.slice(1));
+      let path = window.location.pathname.split("/");
+      if(path.length > 1) {
+        window.location.replace(window.location.origin + "/" + path[1] + "/?p=" + path[2] || "");
+      }
     </script>
   </head>
   <body>
