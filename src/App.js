@@ -9,9 +9,9 @@ class App extends Component {
 
   renderRedirect = () => {
     let search = window.location.search;
+    console.log("search=================  ", window.location.origin, window.location.search);
     if(search.indexOf("?p=") !== -1) {
       let url = window.location.search.slice(3);
-      console.log("url3=================  ", window.location);
       return <Redirect to={url} />
     }
   }
