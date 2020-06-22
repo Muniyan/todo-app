@@ -3,19 +3,22 @@ import { Route, Link, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 import Todo from "./components/todo";
+import NotFound from "./components/notFound";
 
 class App extends Component {
-  render() {
-    // redirect default page to todo page
-    const App = () => (
-      <Switch>
-        <Redirect exact from="/" to="todo" />
-        <Route exact path="/todo" component={Todo} />
-      </Switch>
-    );
 
+  renderRedirect = () => {
+    let search = window.location.search;
+    if(search.indexOf("?p=") !== -1) {
+      let url = window.location.pathname + window.location.search.slice(3);
+      return <Redirect to={url} />
+    }
+  }
+
+  render() {
     return (
       <div className="App">
+        { this.renderRedirect() }
         <header className="App-header w100">
           <span className="App-icon fleft" />
           <Link to="/" className="App-name fleft cpointer">
@@ -25,7 +28,9 @@ class App extends Component {
 
         <div className="App-container fleft">
           <Switch>
-            <App />
+            <Redirect exact from="/" to="todo" />
+            <Route exact path="/todo" component={Todo} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </div>
       </div>

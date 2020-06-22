@@ -18,6 +18,7 @@ class Todo extends Component {
 
   // Fetching todo info from local storage
   componentDidMount = () => {
+    window.document.title = "Todo App";
     var todoArr = this.getItem("vivriti-Todo");
     if (todoArr && todoArr.length > 0) {
       this.updateState("todo", JSON.parse(todoArr));
