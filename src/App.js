@@ -21,15 +21,16 @@ class App extends Component {
         { this.renderRedirect() }
         <header className="App-header w100">
           <span className="App-icon fleft" />
-          <Link to="/" className="App-name fleft cpointer">
+          <Link to="/todo-app" className="App-name fleft cpointer">
             To Do App
           </Link>
         </header>
 
         <div className="App-container fleft">
           <Switch>
-            <Redirect exact from="/" to="todo" />
-            <Route exact path="/todo" component={Todo} />
+            <Redirect exact from="/" to="/todo-app" />
+            <Redirect exact from="/todo-app" to="/todo-app/todo" />
+            <Route exact path="/todo-app/todo" component={Todo} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
