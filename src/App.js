@@ -12,6 +12,8 @@ class App extends Component {
     if(search.indexOf("?p=") !== -1) {
       let url = window.location.origin + window.location.search.slice(3);
       console.log("url=================  ", url);
+      console.log("search=================  ", search);
+      console.log("origin=================  ", window.location.origin);
       return <Redirect to={url} />
     }
   }
